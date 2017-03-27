@@ -1,5 +1,7 @@
 # C++ Boilterplate
 
+C++ Boilerplate is sophisticated template for managing C++ project.
+
 * [日本語](languages/ja/README.md)
 
 ## License

@@ -1,3 +1,3 @@
 # Example
  
-C++ Boilerplate のサンプル構成です。
+This is a example directory of C++ Boilerplate.

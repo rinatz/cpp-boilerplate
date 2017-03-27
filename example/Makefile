@@ -1,6 +1,6 @@
 CONFIG ?= Debug
 CMAKE_SOURCE_DIR = $(CURDIR)
-OUT = out/$(CMAKE_SOURCE_DIR)
+OUT = out/$(CONFIG)
 
 .PHONY: up
 up:

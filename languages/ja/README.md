@@ -79,6 +79,7 @@ Jenkinsfile は単純に Make のライフサイクルを実行するだけな�
 │      └─cpp
 │          └─main.cc
 ├─.clang-format
+├─.gitignore
 ├─CMakeLists.txt
 ├─docker-compose.yml
 ├─Jenkinsfile
@@ -129,6 +130,20 @@ services:
 #### .clang-format
 
 コーディングスタイルを整形するための clang-format 用の設定ファイルです。
+
+#### .gitignore
+
+[github.com/gitignore](https://github.com/github/gitignore) より
+次の設定を取り込みます。
+
+* Global/Eclipse
+* Global/Ninja
+* C++
+* CMake
+* Gcov
+* Qt
+
+[gibo](https://github.com/simonwhitaker/gibo) を使って取り込むと楽です。
 
 #### CMakeLists.txt
 

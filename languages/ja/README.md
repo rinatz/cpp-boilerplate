@@ -189,3 +189,21 @@ $ make down
 
 プロジェクトのバージョンを管理するためのヘッダテンプレートです。
 `make build` をすると `out/Debug, out/Release` 配下に `version.h` が作成されます。
+CMake を使う場合バージョン番号は `CMakeLists.txt` 内の下記の部分で定義します。
+
+```
+set(PROJECT_VERSION_MAJOR 1)
+set(PROJECT_VERSION_MINOR 0)
+set(PROJECT_VERSION_PATCH 0)
+set(PROJECT_VERSION_PRE_RELEASE "")
+set(PROJECT_VERSION_BUILD_TAG "$ENV{BUILD_TAG}")
+```
+
+バージョニングルールはセマンティックバージョニングに従っており、
+バージョン番号は `${MAJOR}.${MINOR}.${PATCH}-${PRE_RELEASE}+${BUILD_TAG}`
+のようになります。
+
+ただし `BUILD_TAG` だけは明示的に指定しません。
+`BUILD_TAG` は Jenkins でビルドしたときだけ自動的に環境変数から設定されます。
+こうしておくことで Jenkins のいつの時点でのビルドなのかが
+分かるようになっています。

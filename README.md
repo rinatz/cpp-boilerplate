@@ -1,4 +1,4 @@
-# C++ Boilterplate
+# C++ Boilerplate
 
 C++ Boilerplate is sophisticated template for managing C++ project.
 

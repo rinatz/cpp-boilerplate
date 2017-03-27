@@ -1,4 +1,4 @@
-# C++ Boilterplate
+# C++ Boilerplate
 
 C++ Boilerplate は C++ のソースコードを効率的に管理するためのテンプレートです。
 

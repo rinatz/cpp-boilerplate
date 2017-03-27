@@ -1,0 +1,52 @@
+properties([
+    buildDiscarder(
+        logRotator(
+            artifactDaysToKeepStr: '',
+            artifactNumToKeepStr: '',
+            daysToKeepStr: '',
+            numToKeepStr: '2'
+        )
+    ),
+    pipelineTriggers([])
+])
+
+node('docker') {
+    env.COMPOSE_PROJECT_NAME = env.JOB_NAME
+
+    ansiColor('xterm') {
+        stage('checkout') {
+            checkout scm
+        }
+
+        stage('up') {
+            sh 'make up'
+        }
+
+        try {
+            stage('buildDebug') {
+                sh 'make build CONFIG=Debug'
+            }
+
+            stage('testDebug') {
+                sh 'make test CONFIG=Debug'
+            }
+
+            stage('buildRelease') {
+                sh 'make build CONFIG=Release'
+            }
+
+            stage('testRelease') {
+                sh 'make test CONFIG=Release'
+            }
+
+            stage('archive') {
+                archiveArtifacts 'out/**'
+                junit 'out/**/*.xml'
+            }
+        } finally {
+            stage('make down') {
+                sh 'make down'
+            }
+        }
+    }
+}

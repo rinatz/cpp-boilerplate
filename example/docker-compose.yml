@@ -1,0 +1,9 @@
+version: "2"
+
+services:
+  develop:
+    build:
+      context: dockerfiles/develop
+    working_dir: /usr/src/app
+    volumes:
+      - ${PWD}:/usr/src/app

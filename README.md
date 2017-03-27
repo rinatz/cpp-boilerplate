@@ -1,2 +1,3 @@
-# cpp-boilerplate
-Sophisticated template for managing C++ project.
+# C++ Boilterplate
+
+* [日本語](languages/ja/README.md)

@@ -18,11 +18,11 @@ node('docker') {
             checkout scm
         }
 
-        stage('up') {
-            sh 'make up'
-        }
-
         try {
+            stage('up') {
+                sh 'make up'
+            }
+
             stage('buildDebug') {
                 sh 'make build CONFIG=Debug'
             }
